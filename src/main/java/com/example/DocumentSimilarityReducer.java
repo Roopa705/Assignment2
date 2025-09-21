@@ -41,7 +41,7 @@ public class DocumentSimilarityReducer extends Reducer<Text, Text, Text, Text> {
             if (similarityPercentage >= 50) {
                 String doc1 = existDoc;
                 String doc2 = key.toString();
-                context.write(new Text("(" + doc2 + ", " + doc1 + ")"), new Text("-> " + similarityPercentage + "%"));
+                context.write(new Text("(" + doc2 + ", " + doc1 + ")"), new Text("-> " + similarityPercentage / 100));
             }
         }
     }
